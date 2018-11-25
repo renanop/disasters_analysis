@@ -8,4 +8,4 @@ The idea is to understand how those indicators shape the types of disasters and 
 
 The analysis script is meant to do a cluster analysis of the disasters, in order to classify similar groups. That kind of knowledge will enable that the government develop specific public policies to each area, and have better results. Sadly, conclusions so far are that we don't have enough data. 
 
-In the analysis i used some machine learning algorithms such as Principal Component Analysis (PCA) and Hierarchical Clustering. Please note that the code may be broken in your machine because of our file paths not being the same.
+In the analysis i used some machine learning algorithms such as Principal Component Analysis (PCA) and Hierarchical Clustering. Please note that the code may be broken in your machine because of our file paths not being the same. I am not actively using GIT, this repository is just a way for me to record my code.
