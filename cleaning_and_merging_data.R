@@ -5,12 +5,12 @@
 # extracted on 19/08/2018                                         #
 #                                                                 #
 # 2 - state_pop.csv is a dataset offered by the Instituto de      #
-# Pesquisa Econômica Aplicada (IPEA) and its database: IPEAData   # 
+# Pesquisa EconÃ´mica Aplicada (IPEA) and its database: IPEAData   # 
 # That said, the available data only covered the period of year   #
 # 2000 until the year 2017                                        #
 # So, the data on population for the year of 2018 was extracted   #
 # directly from the website of the Instituto Brasileiro de        #
-# Geografia e Estatística (IBGE), and updated manually during the #
+# Geografia e EstatÃ­stica (IBGE), and updated manually during the #
 # data preparation for analysis (08/09/2018):                     #
 #                                                                 #
 # 2018: Rio de Janeiro's population: 17.159.960 people (estimate) #
@@ -34,9 +34,9 @@
 # 1 - On the EM-DAT data, the total financial damage and the       #
 # total insured losses are both in thousands of dollars            #
 #                                                                  #
-# 2 - PNAD_unemployment data was based on the "taxa de desocupação"#
+# 2 - PNAD_unemployment data was based on the "taxa de desocupaÃ§Ã£o"#
 # of people with age above 14 years old. The metric  "taxa de des- #
-# ocupação" considers that, in order to be unoccupied, one must    #
+# ocupaÃ§Ã£o" considers that, in order to be unoccupied, one must    #
 # not be involved in any gainful occupation and should have looked #
 # for a job in the last period of 30 days . For more information:  #
 # https://bit.ly/2L5lCrD (link for the IBGE methodology)           #
@@ -86,12 +86,12 @@ ISOS <- c('AC', 'AL', 'AP', 'AM', 'BA',
           'RS', 'RO', 'RR', 'SC', 'SE',
           'SP', 'TO')
 
-states_br <- c('Acre', 'Alagoas', 'Amapá', 'Amazonas', 'Bahia',
-               'Ceará', 'Distrito Federal', 'Espírito Santo', 'Goiás', 'Maranhão',
-               'Mato Grosso', 'Mato Grosso do Sul', 'Minas Gerais', 'Paraná', 'Paraíba',
-               'Pará', 'Pernambuco', 'Piauí', 'Rio de Janeiro', 'Rio Grande do Norte',
-               'Rio Grande do Sul', 'Rondônia', 'Roraima', 'Santa Catarina', 'Sergipe',
-               'São Paulo', 'Tocantins')
+states_br <- c('Acre', 'Alagoas', 'AmapÃ¡', 'Amazonas', 'Bahia',
+               'CearÃ¡', 'Distrito Federal', 'EspÃ­rito Santo', 'GoiÃ¡s', 'MaranhÃ£o',
+               'Mato Grosso', 'Mato Grosso do Sul', 'Minas Gerais', 'ParanÃ¡', 'ParaÃ­ba',
+               'ParÃ¡', 'Pernambuco', 'PiauÃ­', 'Rio de Janeiro', 'Rio Grande do Norte',
+               'Rio Grande do Sul', 'RondÃ´nia', 'Roraima', 'Santa Catarina', 'Sergipe',
+               'SÃ£o Paulo', 'Tocantins')
 
 states_df <- tibble(ISOS, states_br, states)
 
@@ -118,14 +118,14 @@ state_populations <- state_populations[which(state_populations$year >= 2000),]
 # Cleaning the house sanitation data:
 house_sanitation <- gather(house_sanitation, key = 'year',
                            value = 'sanitation_percentage', c(-1:-3))
-house_sanitation <- rename(house_sanitation, ISO = Sigla, state = Estado, code = Código)
+house_sanitation <- rename(house_sanitation, ISO = Sigla, state = Estado, code = CÃ³digo)
 house_sanitation <- select(house_sanitation, - code)
 house_sanitation <- house_sanitation[which(house_sanitation$year >= 2000),]
 
 # Removing last column (was empty) and Gathering years in GDP dataset
 gdp_growth <- gdp_growth[,-ncol(gdp_growth)]     
 gdp_growth <- gather(gdp_growth, years,GDP,c(-1:-3))
-gdp_growth <- rename(gdp_growth, ISO = Sigla, state = Estado, code = Código, year = years)
+gdp_growth <- rename(gdp_growth, ISO = Sigla, state = Estado, code = CÃ³digo, year = years)
 gdp_growth <- select(gdp_growth, - code)
 
 # Renaming columns of unemployment data and gathering them.
@@ -164,7 +164,7 @@ women['location'] <- apply(women['location'], 1, change_name)
 # let's pick a standard for our column names:
 # Standard is xxx_yyy
 
-disasters <- disasters %>% rename(start_date = ï..Start.date,
+disasters <- disasters %>% rename(start_date = Ã¯..Start.date,
                                   end_date = End.date,
                                   magnitude_value = Magnitude.value,
                                   magnitude_scale = Magnitude.scale,
